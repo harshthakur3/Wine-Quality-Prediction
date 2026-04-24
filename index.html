@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine Quality Prediction - Project Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">Project Showcase</span>
+      <h1>Wine Quality Prediction</h1>
+      <p>Using Machine Learning to understand how physicochemical tests correlate with wine quality.</p>
+    </div>
+    <div class="scroll-indicator">↓</div>
+  </header>
+
+  <!-- What I Did -->
+  <section id="what-i-did">
+    <div class="section-header">
+      <p>The Objective</p>
+      <h2>What I Did</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🍷</div>
+        <h3>The Problem</h3>
+        <p>In the wine industry, predicting the quality of wine based solely on standard physicochemical tests (like pH, acidity, and alcohol content) can save significant time and money compared to human sensory panels.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>The Approach</h3>
+        <p>I built a supervised machine learning model using a dataset of red wine variants. By identifying nonlinear relationships between the chemical properties, the model can estimate the final quality score of a wine.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>The Outcome</h3>
+        <p>A trained Random Forest algorithm that analyzes 11 different input parameters to successfully categorize the wine into quality classifications, highlighting the most important features driving wine quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Used -->
+  <section id="what-i-used">
+    <div class="section-header">
+      <p>Technology Stack</p>
+      <h2>What I Used</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🐼</div>
+        <h3>Pandas & NumPy</h3>
+        <p>Used for loading the dataset, handling missing values, and reshaping the data structure to prepare it for machine learning.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Seaborn & Matplotlib</h3>
+        <p>Utilized for Exploratory Data Analysis (EDA). I created pairplots, bar graphs, and correlation heatmaps to understand data distributions and feature relationships.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>Scikit-Learn</h3>
+        <p>The core machine learning library. I used `train_test_split` for data partitioning and `RandomForestClassifier` for the predictive model, along with accuracy metrics for evaluation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How I Used It -->
+  <section id="how-i-used-it">
+    <div class="section-header">
+      <p>My Workflow</p>
+      <h2>How I Used It</h2>
+    </div>
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>1. Data Loading & Inspection</h3>
+          <p>I started by importing the `wine.csv` dataset using Pandas. I examined the shape of the data (1599 rows, 12 columns) and checked for any null or missing values to ensure data integrity.</p>
+          <div class="tag-list">
+            <span class="tag">pd.read_csv()</span>
+            <span class="tag">df.isnull().sum()</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>2. Exploratory Data Analysis (EDA)</h3>
+          <p>Using Seaborn, I visualized how features like volatile acidity, citric acid, and alcohol content relate to the target variable 'quality'. I calculated the correlation matrix to identify positive and negative correlations.</p>
+          <div class="tag-list">
+            <span class="tag">sns.catplot()</span>
+            <span class="tag">df.corr()</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>3. Data Preprocessing & Splitting</h3>
+          <p>I separated the features (X) from the target label (y). Then, using Scikit-Learn's `train_test_split`, I partitioned the data into training and testing sets to ensure the model could be evaluated on unseen data.</p>
+          <div class="tag-list">
+            <span class="tag">train_test_split</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>4. Model Selection & Training</h3>
+          <p>I chose the Random Forest Classifier because it handles complex, nonlinear data well and is robust to overfitting. I instantiated the model and fit it to the training data.</p>
+          <div class="tag-list">
+            <span class="tag">RandomForestClassifier</span>
+            <span class="tag">model.fit()</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>5. Evaluation</h3>
+          <p>Finally, I generated predictions on the test set and evaluated the model using `accuracy_score`. This confirmed how well the model generalizes to new wine samples.</p>
+          <div class="tag-list">
+            <span class="tag">model.predict()</span>
+            <span class="tag">accuracy_score</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Prepared for Project Revision. Built with HTML, CSS, and Vanilla JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
