@@ -1,0 +1,97 @@
+IPL BATSMAN RANKING MODEL - PROJECT EXPLANATION
+===============================================
+
+DOMAIN: Sports Management
+CONTEXT: Company X is a sports management company for international cricket
+
+PROJECT OBJECTIVE:
+Build a data-driven batsman ranking model for the sports management company to make business decisions based on IPL series performance data.
+
+DATASET DESCRIPTION:
+The dataset contains batting statistics collected from IPL series. It includes the following attributes:
+- Runs: Total runs scored by the batsman
+- Ave: Average runs scored per match
+- SR: Strike rate of the batsman
+- Fours: Number of boundary/four scored
+- Sixes: Number of boundary/six scored
+- HF: Number of half centuries scored
+- Name: Player name
+
+METHODOLOGY:
+
+1. DATA LOADING & EXPLORATION:
+   - Loaded the batting_bowling_ipl_bat.csv file using pandas
+   - Removed missing values (dropna)
+   - Examined dataset dimensions: rows and columns
+   - Checked data types for each attribute
+   - Generated 5-point summary (describe)
+   - Identified duplicated rows
+
+2. EXPLORATORY DATA ANALYSIS (EDA):
+   - Visualized Top 10 players by different metrics:
+     * Top 10 Players by Total Runs
+     * Top 10 Players by Average Runs
+     * Top 10 Players by Strike Rate
+     * Top 10 Players by Fours
+     * Top 10 Players by Sixes
+     * Top 10 Players by Half Centuries
+   - Generated histograms to check data distribution
+   - Created distribution plots (distplot) for each numeric variable
+   - Created box plots to identify outliers and data spread
+
+3. CORRELATION ANALYSIS:
+   - Computed correlation matrix between all numeric attributes
+   - Created heatmap visualization
+   - Identified relationships between different performance metrics
+
+4. DATA PREPROCESSING:
+   - Applied Z-score standardization/scaling to all numeric variables
+   - This ensures all variables are on the same scale (mean=0, std=1)
+   - Required for K-Means clustering algorithm
+
+5. K-MEANS CLUSTERING:
+   - Determined optimal number of clusters using two methods:
+   
+   A) ELBOW METHOD:
+      - Calculated Within-Sum-of-Squares (WSS) for k=1 to 5 clusters
+      - Plotted WSS vs Number of Clusters
+      - Identified the "elbow point" where WSS reduction diminishes
+      - Elbow method suggested 2 clusters as optimal
+   
+   B) SILHOUETTE COEFFICIENT:
+      - Calculated silhouette score for k=2 to 5 clusters
+      - Plotted silhouette coefficient vs Number of Clusters
+      - Confirmed 2 clusters as the optimal choice
+      - Silhouette score indicates cluster quality and separation
+   
+   - Final Model: Selected K-Means with 2 clusters
+
+6. CLUSTER LABELING & RANKING:
+   - Attached cluster labels to original dataset
+   - Analyzed cluster distribution (frequency of players in each cluster)
+   - Computed mean values of each metric per cluster
+   - Renamed clusters based on performance metrics:
+     * Cluster 1 → Grade A (High performers - Elite batsmen)
+     * Cluster 0 → Grade B (Good performers - Standard batsmen)
+
+7. RESULTS:
+   - Grade A Players: Elite batsmen with higher runs, average, strike rate, and boundaries
+   - Grade B Players: Standard performing batsmen with moderate metrics
+   - The model successfully segments players into two distinct performance categories
+
+BUSINESS APPLICATION:
+The company can use this ranking model to:
+- Identify and recruit elite-performing batsmen (Grade A)
+- Focus on performance improvement programs for Grade B players
+- Make data-driven decisions for team selection and player contracts
+- Compare player performance metrics objectively
+
+KEY LIBRARIES USED:
+- numpy: Numerical computations
+- pandas: Data manipulation and analysis
+- matplotlib & seaborn: Data visualization
+- scikit-learn: Machine learning (KMeans clustering, silhouette analysis, zscore scaling)
+- scipy: Statistical functions
+
+CONCLUSION:
+The project successfully demonstrates the application of unsupervised machine learning (K-Means clustering) to segment IPL batsmen into performance-based categories, providing valuable insights for sports management decision-making.
